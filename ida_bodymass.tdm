@@ -1,0 +1,56 @@
+[Diagram]
+Title=body
+Database=C:\Users\Preran Melanta\Desktop\body_mass_index.xls
+
+[Dataset]
+MLClassGenerator=TMLGenDataset
+successors=1
+succ_1=Define status 1
+
+[Define status 1]
+MLClassGenerator=TMLGenFSDefStatus
+target_count=0
+input_count=3
+input_1=WeightKg
+input_2=HeightM
+input_3=BodyMass
+illus_count=0
+successors=4
+succ_1=More Univariate cont stat 2
+succ_2=Scatterplot with label 2
+succ_3=View dataset 2
+succ_4=Univariate Outlier Detection 2
+
+[More Univariate cont stat 2]
+MLClassGenerator=TMLGenCompSDUnivContPlus
+sort_result=0
+sort_criteria=0
+successors=0
+
+[Scatterplot with label 2]
+MLClassGenerator=TMLGenCompScatterPlotLegend
+successors=0
+
+[View dataset 2]
+MLClassGenerator=TMLGenCompViewData
+successors=0
+
+[Univariate Outlier Detection 2]
+MLClassGenerator=TMLGenCompODUnivariate
+pvalue=0.05
+mSigma=3
+show_detected=1
+use_fences=1
+isRemoveOutliers=1
+cSigma=0
+cInnerFence=0
+cOuterFence=1
+successors=1
+succ_1=Univariate continuous stat 1
+
+[Univariate continuous stat 1]
+MLClassGenerator=TMLGenCompSDUnivCont
+sort_result=0
+sort_criteria=0
+successors=0
+
